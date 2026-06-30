@@ -36,3 +36,9 @@ export async function POST(request: Request) {
 
 	return Response.json({ item }, { status: 201 });
 }
+
+export async function DELETE() {
+	const result = await prisma.submittedData.deleteMany();
+
+	return Response.json({ deletedCount: result.count });
+}
